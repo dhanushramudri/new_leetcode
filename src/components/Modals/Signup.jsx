@@ -1,4 +1,4 @@
-import { React, useState } from "react";
+import { React, useEffect, useState } from "react";
 import { useSetRecoilState } from "recoil";
 import { authModalState } from "../../atoms/authModalAtom";
 import { auth } from "../../firebase/firebase";
@@ -25,6 +25,9 @@ const Signup = () => {
   };
   const handleRegister = async (e) => {
     e.preventDefault();
+    if (!inputs.displayname || !inputs.email || !inputs.password)
+      return alert("Please fill all the fields");
+
     try {
       const newUser = await createUserWithEmailAndPassword(
         inputs.email,
@@ -36,6 +39,10 @@ const Signup = () => {
       alert(error.message);
     }
   };
+
+  useEffect(() => {
+    if (error) alert(error.message);
+  }, [error]);
   return (
     <form className="space-y-6 px-6 py-4" onSubmit={handleRegister}>
       <h3 className="text-xl font-medium text-white">Register to LeetClone</h3>
@@ -80,9 +87,9 @@ const Signup = () => {
         </label>
         <input
           onChange={handleChangeInput}
-          type="Password"
-          name="Password"
-          id="Password"
+          type="password"
+          name="password"
+          id="password"
           className="border-2 outline-none sm:text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 bg-gray-600 border-gray-5-- placeholder-gray-400 text-white"
           placeholder="********"
         />
@@ -91,7 +98,7 @@ const Signup = () => {
         type="submit"
         className="w-full text-white focus:ring-blue-300 font-medium rounded-lg text-sm px-5 py-2.5 text-center bg-brand-orange hover:bg-brand-orange-s"
       >
-        Register
+        {loading ? "Registering..." : "Register"}
       </button>
 
       <div className="text-sm font-medium text-gray-300">
