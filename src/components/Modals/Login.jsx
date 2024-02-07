@@ -4,6 +4,7 @@ import { authModalState, setAuthModalState } from "../../atoms/authModalAtom";
 import { useSignInWithEmailAndPassword } from "react-firebase-hooks/auth";
 import { auth } from "../../firebase/firebase";
 import { useNavigate } from "react-router-dom";
+import { toast } from "react-toastify";
 
 const Login = () => {
   const Navigate = useNavigate();
@@ -33,11 +34,20 @@ const Login = () => {
       Navigate("/");
     } catch (error) {
       console.log(error.message);
-      alert(error.message);
+      toast.error(error.message, {
+        position: "top-center",
+        autoClose: 3000,
+        theme: "dark",
+      });
     }
   };
   useEffect(() => {
-    if (error) alert(error.message);
+    if (error)
+      toast.error(error.message, {
+        position: "top-center",
+        autoClose: 3000,
+        theme: "dark",
+      });
   });
   // console.log(user, "user");
   return (

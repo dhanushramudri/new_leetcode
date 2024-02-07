@@ -5,6 +5,8 @@ import App from "./App";
 import { BrowserRouter, Routes, Route, Navigate } from "react-router-dom";
 import Authpage from "./pages/auth/Authpage";
 import { RecoilRoot } from "recoil";
+import { ToastContainer } from "react-toastify";
+import "react-toastify/dist/ReactToastify.css";
 
 const root = ReactDOM.createRoot(document.getElementById("root"));
 root.render(
@@ -19,5 +21,6 @@ root.render(
         </Routes>
       </React.StrictMode>
     </BrowserRouter>
+    <ToastContainer />
   </RecoilRoot>
 );
