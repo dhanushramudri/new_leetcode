@@ -41,9 +41,8 @@ const ProblemsTable = () => {
               </th>
               <td className="px-6 py-4">
                 <Link
-                  href={`/problems/${doc.id}`}
+                  to={`/problems/${doc.id}`}
                   className="hover:text-blue-600 cursor-pointer"
-                  target="_blank"
                 >
                   {doc.title}
                 </Link>
