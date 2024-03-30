@@ -8,6 +8,7 @@ import { RecoilRoot } from "recoil";
 import { ToastContainer } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
 import ProblemPage from "./pages/problems/[pid]";
+import Dummy from "./components/Dummy";
 
 const root = ReactDOM.createRoot(document.getElementById("root"));
 root.render(
@@ -19,6 +20,7 @@ root.render(
           <Route path="/auth" element={<Authpage />} />
           <Route path="/problems/*" element={<ProblemPage />} />
           <Route path="*" element={<Navigate to="/" />} />
+          <Route path="dummy" element={<Dummy />} />
         </Routes>
       </React.StrictMode>
     </BrowserRouter>
