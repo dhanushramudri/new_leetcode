@@ -33,7 +33,7 @@ function App() {
                   Title
                 </th>
                 <th scope="col" className="px-6 py-3 w-0 font-medium">
-                  Difficulty
+                  Difficult
                 </th>
 
                 <th scope="col" className="px-6 py-3 w-0 font-medium">
