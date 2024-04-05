@@ -96,7 +96,7 @@ const Playground = () => {
               onClick={handleRunCode}
               style={{ backgroundColor: "beige" }}
             >
-              Runn Here
+              Run Here
             </button>
             {/* <div>
               Lorem, ipsum dolor sit amet consectetur adipisicing elit.
