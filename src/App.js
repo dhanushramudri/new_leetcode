@@ -40,7 +40,7 @@ function App() {
                   Category
                 </th>
                 <th scope="col" className="px-6 py-3 w-0 font-medium">
-                  Solution
+                  Solutio
                 </th>
               </tr>
             </thead>
